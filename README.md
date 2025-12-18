@@ -2,48 +2,51 @@
 *(Isi judul proyek Anda di sini)*
 
 ## 👤 Informasi
-- **Nama:** [...]  
-- **Repo:** [...]  
-- **Video:** [...]  
+- **Nama:** LYAN FAIRUS ATHALLAH  
+- **Repo:** https://github.com/lynnfairss/DataScience---UAS-.git  
+- **Video:** https://youtu.be/BaBfCCVRCFE
 
 ---
 
 # 1. 🎯 Ringkasan Proyek
 - Menyelesaikan permasalahan sesuai domain  
 - Melakukan data preparation  
-- Membangun 3 model: **Baseline**, **Advanced**, **Deep Learning**  
+- Membangun 3 model: **Baseline(Logistic Regression)**, **Advanced(Random Forest)**, **Deep Learning(Multilayer Perceptron / MLP)**  
 - Melakukan evaluasi dan menentukan model terbaik  
 
 ---
 
 # 2. 📄 Problem & Goals
 **Problem Statements:**  
-- [...]  
-- [...]  
+- Dataset memiliki jumlah data yang relatif kecil dan distribusi kelas yang tidak seimbang 
+- Diperlukan model yang mampu mengenali pola risiko fertilitas secara akurat
+- Perlu membandingkan performa pendekatan klasik ML dan Deep Learning
+
+Goals
 
 **Goals:**  
-- [...]  
-- [...]  
+- Membangun model klasifikasi dengan performa yang baik berdasarkan metrik evaluasi
+- Membandingkan tiga pendekatan model (baseline, advanced, deep learning)
+- Menentukan model terbaik berdasarkan Accuracy, Precision, Recall, F1-Score, dan ROC-AUC
 
 ---
 ## 📁 Struktur Folder
 ```
 project/
 │
-├── data/                   # Dataset (tidak di-commit, download manual)
+├── data/                   # Dataset (tidak di-commit)
 │
-├── notebooks/              # Jupyter notebooks
+├── notebooks/              # Notebook eksperimen
 │   └── ML_Project.ipynb
 │
-├── src/                    # Source code
-│   
+├── src/                    # Source code preprocessing & modeling
+│
 ├── models/                 # Saved models
 │   ├── model_baseline.pkl
 │   ├── model_rf.pkl
-│   └── model_cnn.h5
+│   └── model_mlp.h5
 │
-├── images/                 # Visualizations
-│   └── r
+├── images/                 # Visualisasi (EDA, confusion matrix, training history)
 │
 ├── requirements.txt        # Dependencies
 ├── .gitignore
@@ -52,57 +55,91 @@ project/
 ---
 
 # 3. 📊 Dataset
-- **Sumber:** [...]  
-- **Jumlah Data:** [...]  
-- **Tipe:** [...]  
+- **Sumber:** UCI Machine Learning Repository – Fertility Diagnosis Dataset
+- **Jumlah Data:** 100 sampel
+- **Jumlah Fitur:** 9 fitur + 1 target
+- **Tipe:** Tabular (Numerik & Kategorikal)
 
 ### Fitur Utama
-| Fitur | Deskripsi |
-|------|-----------|
-| ... | ... |
+| Fitur                 | Deskripsi                     |
+| --------------------- | ----------------------------- |
+| Age                   | Usia individu                 |
+| Season                | Musim saat pengambilan data   |
+| Childish_Diseases     | Riwayat penyakit masa kecil   |
+| Trauma                | Riwayat trauma                |
+| Surgical_Intervention | Riwayat operasi               |
+| Accident_Frequency    | Frekuensi kecelakaan          |
+| Alcohol_Consumption   | Konsumsi alkohol              |
+| Smoking_Status        | Status merokok                |
+| Sitting_Hours         | Lama duduk per hari           |
+| Diagnosis             | Target klasifikasi fertilitas |
 
 ---
 
 # 4. 🔧 Data Preparation
-- Cleaning (missing/duplicate/outliers)  
-- Transformasi (encoding/scaling)  
-- Splitting (train/val/test)  
+- Data Cleaning:
+Cek missing value dan duplikasi
+Penanganan outlier pada fitur numerik
+- Transformasi Data:
+Encoding fitur kategorikal
+Scaling fitur numerik menggunakan StandardScaler
+- Data Splitting:
+Train set: 80%
+Test set: 20%
+Stratified split untuk menjaga distribusi kelas
 
 ---
 
 # 5. 🤖 Modeling
-- **Model 1 – Baseline:** [...]  
-- **Model 2 – Advanced ML:** [...]  
-- **Model 3 – Deep Learning:** [...]  
+- **Model 1 – Baseline:**
+ Logistic Regression
+ Digunakan sebagai pembanding awal karena sederhana dan mudah diinterpretasi
+- **Model 2 – Advanced ML:** 
+ Random Forest Classifier
+ Mampu menangkap hubungan non-linear dan lebih robust terhadap noise
+- **Model 3 – Deep Learning:**
+ Multilayer Perceptron (MLP)
+ Minimal 2 hidden layers
+ Menggunakan Dropout dan EarlyStopping untuk mencegah overfitting
+ Training minimal 10 epochs
 
 ---
 
 # 6. 🧪 Evaluation
-**Metrik:** Accuracy / F1 / MAE / MSE (pilih sesuai tugas)
+Metrik Evaluasi:
+- Accuracy
+- Precision
+- Recall
+- F1-Score
+- ROC-AUC
+- Confusion Matrix
 
 ### Hasil Singkat
-| Model | Score | Catatan |
-|-------|--------|---------|
-| Baseline | [...] | |
-| Advanced | [...] | |
-| Deep Learning | [...] | |
+| Model         | Score (F1) | Catatan                          |
+| ------------- | ---------- | -------------------------------- |
+| Baseline      | Baik       | Model sederhana, performa stabil |
+| Advanced      | Lebih baik | Menangkap pola non-linear        |
+| Deep Learning | Kompetitif | Sensitif terhadap data imbalance |
 
 ---
 
 # 7. 🏁 Kesimpulan
-- Model terbaik: [...]  
-- Alasan: [...]  
-- Insight penting: [...]  
+- Model terbaik: Random Forest
+- Alasan: Memberikan keseimbangan terbaik antara precision, recall, dan F1-score pada data imbalanced
+- Insight penting: 
+Jumlah data sangat mempengaruhi stabilitas model
+Threshold tuning penting untuk meningkatkan recall kelas minoritas
 
 ---
 
 # 8. 🔮 Future Work
-- [ ] Tambah data  
-- [ ] Tuning model  
-- [ ] Coba arsitektur DL lain  
-- [ ] Deployment  
+- [ ] Menambah jumlah data
+- [ ] Melakukan hyperparameter tuning lebih lanjut
+- [ ] Mencoba arsitektur deep learning yang lebih kompleks
+- [ ] Deployment model ke web (Streamlit / FastAPI)
 
 ---
 
 # 9. 🔁 Reproducibility
-Gunakan environment:
+Gunakan environment: pip install -r requirements.txt
+
